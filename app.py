@@ -13,7 +13,7 @@ stickers = [
 ]
 
 
-# Load API key from Streamlit secrets or environment
+# Load API key frm Streamlit
 api_key = st.secrets.get("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
 
@@ -23,7 +23,7 @@ st.set_page_config(page_title="Otto.bot", page_icon="🦦")
 # Image for Otto's profile picture
 otto_profile_url = "otto.pfp.png"
 
-# Chat bubble styling
+# Chat bubble
 st.markdown("""
     <style>
         .user-bubble {
@@ -85,7 +85,7 @@ if "messages" not in st.session_state:
 if "chat_start_time" not in st.session_state and len(st.session_state.messages) > 1:
     st.session_state.chat_start_time = time.time()
 
-# Retrieve time limit from session (default to 5 if not set)
+# Retrieve time limit (default to 5)
 chat_limit = st.session_state.get("chat_time_limit_minutes", 5)
 start_time = st.session_state.get("chat_start_time")
 time_up = False
@@ -147,7 +147,7 @@ with st.expander("🔒 Parent Mode"):
 
 
 
-# Chat input - disabled if time's up
+# Chat input; disabled if time's up
 if not time_up:
     with st.form("chat_form", clear_on_submit=True):
         user_input = st.text_input("Ask Otto something:", "")
