@@ -130,7 +130,7 @@ for idx, suggestion in enumerate(suggestions):
 with st.expander("🔒 Parent Mode"):
     pw = st.text_input("Enter parent password", type="password")
 
-    if pw == "123":  # ← simple hardcoded password (replace in production)
+    if pw == "123":  
         time_limit = st.number_input("Set chat time limit (minutes)", min_value=1, max_value=60, value=5)
         allowed_topics = st.multiselect(
             "Choose allowed topics:",
@@ -176,7 +176,7 @@ for msg in reversed(st.session_state.messages[1:]):
         st.markdown(f"<div class='user-bubble'>{msg['content']}</div>", unsafe_allow_html=True)
     else:
         content = msg['content']
-        random_sticker = msg.get("sticker")  # use stored sticker
+        random_sticker = msg.get("sticker") 
 
         if random_sticker:
             if random_sticker.endswith(".mp4"):
